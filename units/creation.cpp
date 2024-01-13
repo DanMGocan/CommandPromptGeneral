@@ -1,9 +1,12 @@
 #include <iostream>
 
+// Something to keep in mind - I can use a static member to define a variable like hope or morale that is 
+// shared between all instances of a class and modified by any of them as well. Is this good practice? 
+
 // The superclass for civilian units 
 class Civilian {
     private:
-        std::string name; 
+        std::string const name; 
         int age;
         bool child;
         bool worker;
@@ -14,6 +17,12 @@ class Civilian {
         Civilian(std::string name, int age) : name(name), age(age), incapacitated(false) {
             update_status();
         };
+
+        // Constructors can be overloaded. Also, let's do this with brace initialization
+        Civilian(std::string name, int age) : name{name}, age{age} {} 
+
+        // All member initilization execute before the constructor so we have the advantage of focusing
+        // on the constructor instead of doing error checking. 
 
         // Accessors
         std::string get_name() const { return name; }

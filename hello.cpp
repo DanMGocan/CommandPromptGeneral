@@ -100,3 +100,16 @@ int main () {
     lesmis.pages = 602;
 }
 
+/* #######################################################################*/
+/****************************************************** Random stuff ******/
+
+void constant_function (const int* pointer_again) {
+    // pointer value can be read but not changed 
+}
+
+// To use the const modifier on a function, that function needs to be member of 
+// an object 
+const int year = 2002;
+int get_info() /*const*/ {
+    return year;
+}
