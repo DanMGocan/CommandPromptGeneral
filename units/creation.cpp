@@ -18,6 +18,9 @@ class Civilian {
             update_status();
         };
 
+        // we must be careful to deallocate resources as well 
+        ~Civilian() noexcept {}; 
+
         // Constructors can be overloaded. Also, let's do this with brace initialization
         Civilian(std::string name, int age) : name{name}, age{age} {} 
 
@@ -57,3 +60,9 @@ int main () {
 
 }
 
+/* We should not throw exceptions inside the desturctor 
+and we should be careful because during an object destruction, while the program is looking for a handler to deal
+with the exception we threw, the object gets destroyed (Call stack) */
+
+/* In composite classes, the member structures / classes are constructed before the parent object 
+*/

@@ -24,6 +24,14 @@ int main() {
     Soldier infantry;
 
     std::cout << infantry.greeting;
+
+    // Creating dynamic objects: 
+    int* my_new_pointer = new int{52}; 
+    // Dynamic objects are allocated and deallocated on request 
+    delete my_new_pointer; // Delete needs the pointer to the object to be deleted 
+
+    int* arr_pointer = new int[100]; // dynamic array
+    delete[] arr_pointer;
 }
 
 class MyClass {
@@ -37,8 +45,22 @@ int MyClass::staticValue = 0; // Definition
 // 'extern' key word 
 // Global variable with static append are limited to the same file
 
+/* STRUCTURED BINDINGS */
+// allows for unpacking a structure or a tuple into separate variables 
 
+/*bool send_kings_horses_and_men() {
+ auto [hd, success] = make_humpty(); w
+ if(!success) return false;
+ // Class invariants established
+ --snip--
+ return true;*/
 
+ /* HOW TO COPY AN OBJECT, so it doesn't occupy the same space in memory */
 
+ struct SimpleStructure {
+    int a{};
+    SimpleStructure(const SimpleStructure &copy);
+ };
 
-    
+ SimpleStructure a;
+ SimpleStructure a_copy{a};
